@@ -1,16 +1,7 @@
 <?php
 
 
-// エンドポイントAPIのURL
-$endpoint_apis = array(
-	"http://lodcu.cs.chubu.ac.jp/SparqlEPCU/RDFServer.jsp?reqtype=api&project=zoo",
-	"http://lodcu.cs.chubu.ac.jp/SparqlEPCU/RDFServer.jsp?reqtype=api&project=planetarium");
-
-// エンドポイントUIのURL（APIのURLと同じ場合は設定不要）
-$endpoint_uis = array(
-	"http://lodcu.cs.chubu.ac.jp/SparqlEPCU/project.jsp?projectID=zoo",
-	"http://lodcu.cs.chubu.ac.jp/SparqlEPCU/project.jsp?projectID=planetarium");
-
+include 'settings.php';
 
 require_once('read_query.php');
 

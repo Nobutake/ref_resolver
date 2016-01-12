@@ -22,7 +22,7 @@ for ($i = 0; $i < count($endpoint_apis); $i++) {
 
 	$query1 = 'select ?p ?o {'.
 	' <'. $prefix. "/" . $uri . $separator.$resource . '> ?p ?o.'.
-	'} order by ?p LIMIT 100';
+	'} order by ?p';
 
 	$json1 = read_query($endpoint, $query1);
 	$data = $json1["results"]["bindings"];
@@ -31,7 +31,7 @@ for ($i = 0; $i < count($endpoint_apis); $i++) {
 
 	$query2 = 'select ?s ?p {'.
 	' ?s ?p <'. $prefix. "/" . $uri . $separator.$resource . '>.'.
-	'} order by ?p LIMIT 100';
+	'} order by ?p';
 
 	$json2 = read_query($endpoint, $query2);
 	$data = $json2["results"]["bindings"];
@@ -43,6 +43,7 @@ for ($i = 0; $i < count($endpoint_apis); $i++) {
 }
 
 header('Content-type: application/json');
+header("Access-Control-Allow-Origin: *");
 echo json_encode($result);
 exit();
 
