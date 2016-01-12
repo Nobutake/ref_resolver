@@ -103,9 +103,9 @@ $.post("http://www.museums-info.net/class/%E3%83%88%E3%83%A9",
 　・endpoint …… endpoint情報
 　　・ui  … endpointのUI
 　　・api … endpointのAPI
-　・refer …… 該当リソースが参照しているリソース情報
+　・refer …… 該当リソースが参照しているリソース情報（配列）
 　　　　　　　　（p … Predicate, o … Object）
-　・referred …… 該当リソースを参照しているリソース情報
+　・referred …… 該当リソースを参照しているリソース情報（配列）
 　　　　　　　　（s … Subject, p … Predicate）
 
 
