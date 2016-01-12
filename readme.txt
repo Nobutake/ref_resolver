@@ -1,4 +1,4 @@
-○LOD Reference Resolverとは
+○ LOD Reference Resolverとは
 
 　LODをLODたらしめる要素の一つに、リソースにユニークなURIが付与され、
 そのURIにアクセスすることでリソースの情報を取得できることが挙げられます。
@@ -9,19 +9,19 @@
 　LOD Reference Resolverがあれば、
 SparqlEPCUなどのフリーで利用できるSPARQL Endpointと、
 PHPが動作するレンタルWebサーバを利用することで、
-簡単に参照解決可能なリソースを持つLODの提供環境を構築することができます。
+参照解決可能なリソースを持つLODの提供環境を簡単に構築することができます。
 
 
 
-○LOD Reference Resolver設置手順
+○ LOD Reference Resolver設置手順
 　LOD Reference Resolverの設置手順は以下の通りです。
-SPARQL Endpointにて、リソースが公開されている必要があります。
+※SPARQL Endpointにてリソースが公開されている必要があります。
 
 
 1. Endpoint設定
 　settings.phpの、エンドポイントAPIのURL、および、エンドポイントUIのURLの
 設定を行います。
-
+（設定方法はsettings.phpのコメント参照）
 
 
 2. PHPファイル設置
@@ -70,7 +70,7 @@ RewriteRule class/(.*)$ /resource.php?res=$1 [QSA,L]
 
 
 
-○LOD Reference Resolver利用方法
+○ LOD Reference Resolver利用方法
 　設置が成功すれば、以下の手順にて利用することができます。
 
 1. WebブラウザからHTML表示する場合
@@ -94,6 +94,20 @@ $.post("http://www.museums-info.net/class/%E3%83%88%E3%83%A9",
 		// POSTだけでなくGETでも取得可能
 	}, "JSON");
 });
+
+
+○ LOD Reference Resolver JSONデータ形式
+
+・resource …… 該当リソースのURI
+・results …… 該当リソース情報（endpointごとの配列）
+　・endpoint …… endpoint情報
+　　・ui  … endpointのUI
+　　・api … endpointのAPI
+　・refer …… 該当リソースが参照しているリソース情報
+　　　　　　　　（p … Predicate, o … Object）
+　・referred …… 該当リソースを参照しているリソース情報
+　　　　　　　　（s … Subject, p … Predicate）
+
 
 
 以上
