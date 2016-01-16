@@ -10,7 +10,7 @@ $resource = $_REQUEST["res"];
 $separator = empty($_REQUEST["sep"]) ? "/" : empty($_REQUEST["sep"]);
 $prefix = (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"];
 
-$type = isset($_REQUEST["output"]) ? $_REQUEST["output"] : 'html';
+$type = strtolower(isset($_REQUEST["output"]) ? $_REQUEST["output"] : 'html');
 
 $pos = strpos($uri, "/");
 if ($pos === false){
@@ -26,6 +26,8 @@ $uri = substr($uri, 0, $pos);
 
 if ($type == 'html'){
 	include 'resource_html.php';
+} else if ($type == 'ttl'){
+	include 'resource_ttl.php';
 } else {
 	include 'resource_json.php';
 }

@@ -31,8 +31,9 @@ PHPが動作するレンタルWebサーバを利用することで、
 
 ・read_query.php
 ・resource.php
+・resource_html.php
 ・resource_json.php
-・resource_php.php
+・resource_ttl.php
 ・settings.php
 
 
@@ -94,6 +95,16 @@ $.post("http://www.museums-info.net/class/%E3%83%88%E3%83%A9",
 		// POSTだけでなくGETでも取得可能
 	}, "JSON");
 });
+
+
+2. WebブラウザからTurtle形式を取得する場合
+　Webブラウザから、リソースのURLにアクセスします。
+その際、URLパラメータとして"output=ttl"を追加します。
+
+例：
+Webブラウザから以下のURLにアクセス
+http://www.museums-info.net/class/トラ?output=ttl
+
 
 
 ○ LOD Reference Resolver JSONデータ形式
